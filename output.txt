@@ -1,0 +1,75 @@
+List all the shell scripts contents of the directory: 
+
+File: check_if_exists.sh
+for_loop.sh
+if_statement.sh
+if_then_else.sh
+passin_vars.sh
+two_statements.sh - Contents #!/bin/bash
+
+FILENAME="$1"
+echo "Testing for the Existence of a file $FILENAME"
+
+if [ -a $FILENAME ]; then
+	echo "$FILENAME exists"
+else
+	echo "There is no $FILENAME in this reallity"
+fi
+#!/bin/bash
+
+echo -e "List all the shell scripts contents of the directory: \n"
+
+SHELLSCRIPTS=`ls *.sh`
+
+for SCRIPT in "$SHELLSCRIPTS"; do
+	DISPLAY="`cat $SCRIPT`"
+	echo "File: $SCRIPT - Contents $DISPLAY"
+done
+
+#echo -e "$SHELLSCRIPTS"
+#!/bin/bash
+#if script for guessing a number
+
+echo "Guess a number from 1-10 range"
+echo "========================================="
+echo ""
+echo "Enter the number: "
+read GUESS
+
+if [ $GUESS == 4 ]; then
+	echo "correct!"
+else
+	echo "incorrect!"
+	fi
+
+#!/bin/bash
+# simple example of if then else
+
+
+echo "enter the numberi from 1 to 3: "
+read VALUE
+
+#if [ "$VALUE" -eq "1" ] 2>/dev/null || [ "$VALUE" -eq "2" ] 2>/dev/null || [ "$VALUE" -eq "3" ] 2>/dev/null; then
+if [ "$VALUE" == "1" ] || [ "$VALUE" == "2" ]; then
+	echo "You entered $VALUE"
+elif [ "$VALUE" == 3 ]; then
+	echo "You entered the larged number from range!"
+else
+	echo "incorrent value"
+fi
+#!/bin/bash
+
+USERNAME=$1
+PASSWORD=$2
+echo -e "Your Username is: $1\nYour Password is: $2"
+#!/bin/bash
+
+FILENAME=$1
+
+if [ -f $FILENAME ] && [ -r $FILENAME ]; then
+	echo "$FILENAME exists and it is readable"
+elif [ -f $FILENAME ] && [ ! -r $FILENAME ]; then
+	echo "$FILENAME exists but it is not readable"
+else
+	echo "$FILENAME does not exists"
+fi
